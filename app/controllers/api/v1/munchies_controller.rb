@@ -8,7 +8,7 @@ class Api::V1::MunchiesController < ApplicationController
       r.params['to'] = params[:destination]
     end 
     distance_data = JSON.parse(response.body, symbolize_names: true)
-    
+
     conn2 = Faraday.new(url: 'http://api.openweathermap.org') do |req|
       req.params['appid'] = ENV['weather_api_key']
     end
@@ -17,7 +17,7 @@ class Api::V1::MunchiesController < ApplicationController
       req.params['lon'] = distance_data[:route][:boundingBox][:lr][:lng]
     end
     forecast_data = JSON.parse(response2.body, symbolize_names: true)
- 
+    
     conn3 = Faraday.new(url: 'https://api.yelp.com') do |req|
       req.headers["Authorization"] = ENV['yelp_api_key']
     end
@@ -27,6 +27,7 @@ class Api::V1::MunchiesController < ApplicationController
     end
     restaurant_data = JSON.parse(response3.body, symbolize_names: true)
 
+    munchie_data = Munchie.new(params[:destination], distance_data, forecast_data, restaurant_data)
     require 'pry'; binding.pry
   end
 end 
