@@ -43,6 +43,7 @@ group :development, :test do
   gem 'faker'
   gem 'pry'
   gem 'shoulda-matchers', '~> 3.1'
+  gem 'simplecov'
 end
 
 group :development do
@@ -53,7 +54,6 @@ group :test do
   gem 'rspec-rails'
   gem 'capybara'
   gem 'launchy'
-  gem 'simplecov'
   gem 'webmock'
   gem 'vcr'
 end
