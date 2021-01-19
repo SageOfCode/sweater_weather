@@ -26,7 +26,6 @@ RSpec.describe "User endpoints" do
       expect(user_response[:data][:attributes]).to be_a(Hash)
 
       user_info = user_response[:data][:attributes]
-      expect(user_info).to be_a(Hash)
       expect(user_info).to have_key(:email)
       expect(user_info[:email]).to be_a(String)
       expect(user_info).to have_key(:api_key)

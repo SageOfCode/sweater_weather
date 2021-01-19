@@ -25,7 +25,6 @@ RSpec.describe "Weather endpoints" do
       expect(forecast[:data][:attributes]).to be_a(Hash)
 
       current_forecast = forecast[:data][:attributes][:current_weather]
-      expect(current_forecast).to be_a(Hash)
       expect(current_forecast).to have_key(:date)
       expect(current_forecast[:date]).to be_a(String)
       expect(current_forecast).to have_key(:sunrise)

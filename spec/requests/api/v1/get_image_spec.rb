@@ -25,7 +25,6 @@ RSpec.describe "Image endpoints" do
       expect(image_response[:data][:attributes]).to be_a(Hash)
 
       image_details = image_response[:data][:attributes]
-      expect(image_details).to be_a(Hash)
       expect(image_details).to have_key(:image_url)
       expect(image_details[:image_url]).to be_a(String)
       expect(image_details).to have_key(:location)
