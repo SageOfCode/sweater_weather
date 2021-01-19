@@ -44,7 +44,7 @@ RSpec.describe "Food and forecast endpoints" do
       expect(forecast_details[:temperature]).to be_a(String)
     
 
-      restaurant_details = munchie_details[:forecast]
+      restaurant_details = munchie_details[:restaurant]
       expect(restaurant_details).to have_key(:name)
       expect(restaurant_details[:name]).to be_a(String)
       expect(restaurant_details).to have_key(:address)
