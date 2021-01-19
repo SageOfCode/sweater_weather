@@ -8,6 +8,15 @@ class WeatherService
       parse_data(response)
     end
 
+    def weather_forecast(lat, lng)
+      response = conn.get('/data/2.5/onecall') do |req|
+        req.params['lat'] = lat
+        req.params['lon'] = lng
+        req.params['units'] = 'imperial'
+      end
+      parse_data(response)
+    end
+
     private 
 
     def conn
