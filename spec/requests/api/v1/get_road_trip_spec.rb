@@ -4,9 +4,9 @@ RSpec.describe "Road Trip endpoints" do
   describe "can get forecast and info for destination" do 
     it "returns endpoints for destination info" do
       
-      user = User.create!(
+      User.create!(
         email: 'whatever@example.com',
-        password: 'password'
+        password: 'password',
         api_key: "jgn983hy48thw9begh98h4539h4"
                     )
 
