@@ -26,9 +26,9 @@ RSpec.describe "Road Trip endpoints" do
       expect(roadtrip_response).to have_key(:data)
       expect(roadtrip_response[:data]).to be_a(Hash)
       expect(roadtrip_response[:data]).to have_key(:id)
-      expect(roadtrip_response[:data][:id]).to be_a(String)
+      expect(roadtrip_response[:data][:id]).to eq(nil)
       expect(roadtrip_response[:data]).to have_key(:type)
-      expect(roadtrip_response[:data][:type]).to eq('users')
+      expect(roadtrip_response[:data][:type]).to eq('roadtrip')
       expect(roadtrip_response[:data]).to have_key(:attributes)
       expect(roadtrip_response[:data][:attributes]).to be_a(Hash)
 
