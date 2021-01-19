@@ -18,17 +18,10 @@ class Api::V1::MunchiesController < ApplicationController
     end
     forecast_data = JSON.parse(response2.body, symbolize_names: true)
     
-    conn3 = Faraday.new(url: 'https://api.yelp.com') do |req|
-      req.headers["Authorization"] = ENV['yelp_api_key']
-    end
-    response3 = conn3.get('/v3/businesses/search') do |req|
-      req.params['term'] = params[:food]
-      req.params['location'] = params[:destination]
-    end
-    restaurant_data = JSON.parse(response3.body, symbolize_names: true)
+    restaurant_data = RestaurantFacade.restaurant_data(params[:food], params[:destination])
 
-    munchie_data = Munchie.new(params[:destination], distance_data, forecast_data, restaurant_data)
+    munchie_object = Munchie.new(params[:destination], distance_data, forecast_data, restaurant_data)
     
-    render json: MunchieSerializer.new(munchie_data)
+    render json: MunchieSerializer.new(munchie_object)
   end
 end 
