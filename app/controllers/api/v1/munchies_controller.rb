@@ -1,13 +1,6 @@
 class Api::V1::MunchiesController < ApplicationController
   def index
-    conn = Faraday.new("http://www.mapquestapi.com") do |f|
-      f.params['key'] = ENV['map_api_key']
-    end
-    response = conn.get("/directions/v2/route") do |r|
-      r.params['from'] = params[:start]
-      r.params['to'] = params[:destination]
-    end 
-    distance_data = JSON.parse(response.body, symbolize_names: true)
+    distance_data = LocationFacade.get_distance(params[:start], params[:destination])
 
     forecast_data = WeatherFacade.get_food_weather(distance_data[:route][:boundingBox][:lr][:lat], distance_data[:route][:boundingBox][:lr][:lng])
     

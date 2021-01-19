@@ -7,6 +7,14 @@ class LocationService
       parse_data(response)
     end
 
+    def get_trip_distance(start, destination)
+      response = conn.get("/directions/v2/route") do |r|
+        r.params['from'] = start
+        r.params['to'] = destination
+      end 
+      parse_data(response)
+    end
+
     private
     def conn
       Faraday.new("http://www.mapquestapi.com") do |f|
