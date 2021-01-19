@@ -9,7 +9,7 @@ RSpec.describe "User login endpoints" do
       )
       user.create_key
       user.save
-      
+
       query_params = {
           "email": "whatever@example.com",
           "password": "password",
@@ -35,7 +35,6 @@ RSpec.describe "User login endpoints" do
       expect(user_info).to have_key(:email)
       expect(user_info[:email]).to be_a(String)
       expect(user_info).to have_key(:api_key)
-      # require 'pry'; binding.pry
       expect(user_info[:api_key]).to be_a(String)
     end
   end
