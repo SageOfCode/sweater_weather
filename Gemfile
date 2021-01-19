@@ -15,7 +15,7 @@ gem 'fast_jsonapi'
 # Use Redis adapter to run Action Cable in production
 # gem 'redis', '~> 4.0'
 # Use ActiveModel has_secure_password
-# gem 'bcrypt', '~> 3.1.7'
+gem 'bcrypt', '~> 3.1.7'
 
 # Use ActiveStorage variant
 # gem 'mini_magick', '~> 4.8'
@@ -43,6 +43,7 @@ group :development, :test do
   gem 'faker'
   gem 'pry'
   gem 'shoulda-matchers', '~> 3.1'
+  gem 'simplecov'
 end
 
 group :development do
@@ -53,7 +54,6 @@ group :test do
   gem 'rspec-rails'
   gem 'capybara'
   gem 'launchy'
-  gem 'simplecov'
   gem 'webmock'
   gem 'vcr'
 end
