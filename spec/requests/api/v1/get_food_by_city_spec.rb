@@ -5,9 +5,9 @@ RSpec.describe "Food and forecast endpoints" do
     it "sends a food with forecast response" do
 
       query_params = {
-          start: 'denver,co',
-          end:   'pueblo,co',
-          food:  'chinese'
+          start:        'denver,co',
+          destination:  'pueblo,co',
+          food:         'chinese'
                   }
       get "/api/v1/munchies", params: query_params
       
