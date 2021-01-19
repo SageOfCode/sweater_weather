@@ -28,6 +28,7 @@ class Api::V1::MunchiesController < ApplicationController
     restaurant_data = JSON.parse(response3.body, symbolize_names: true)
 
     munchie_data = Munchie.new(params[:destination], distance_data, forecast_data, restaurant_data)
-    require 'pry'; binding.pry
+    
+    render json: MunchieSerializer.new(munchie_data)
   end
 end 
