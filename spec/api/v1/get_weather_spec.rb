@@ -12,9 +12,9 @@ RSpec.describe "Weather endpoints" do
       expect(response).to be_successful
       expect(response.status).to eq(200)
       expect(response.content_type).to eq("application/json")
+
       forecast = JSON.parse(response.body, symbolize_names: true)
       expect(forecast).to be_a(Hash)
-
       expect(forecast).to have_key(:data)
       expect(forecast[:data]).to be_a(Hash)
       expect(forecast[:data]).to have_key(:id)
