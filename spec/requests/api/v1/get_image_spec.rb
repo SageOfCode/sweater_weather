@@ -40,5 +40,13 @@ RSpec.describe "Image endpoints" do
       expect(credit).to have_key(:source)
       expect(credit[:source]).to be_a(String)
     end
+    it 'returns a 400 error if nothing is passed in' do 
+      query_params  = {
+          location: ''
+      }
+      post "/api/v1/users", params: query_params
+      expect(response).to_not be_successful
+      expect(response.status).to eq(400)
+    end
   end
 end
