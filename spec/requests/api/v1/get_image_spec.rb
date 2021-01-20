@@ -44,7 +44,7 @@ RSpec.describe "Image endpoints" do
       query_params  = {
           location: ''
       }
-      post "/api/v1/users", params: query_params
+      get "/api/v1/backgrounds", params: query_params
       expect(response).to_not be_successful
       expect(response.status).to eq(400)
     end
