@@ -1,4 +1,5 @@
 require 'rails_helper'
+
 describe 'Photo' do
   it 'exists and has attributes' do
     photo_data = {
@@ -32,15 +33,44 @@ describe 'Photo' do
       :likes=>1,
       :liked_by_user=>false,
       :current_user_collections=>[],
-      :sponsorship=>nil
+      :sponsorship=>nil,
+      :user=>{
+        "id"=>"uMT_KSln-6U",
+        "updated_at"=>"2021-01-18T05:51:50-05:00",
+        "username"=>"mikekilcoyne",
+        "name"=>"Michael Kilcoyne",
+        "first_name"=>"Michael",
+        "last_name"=>"Kilcoyne",
+        "twitter_username"=>"mikekilcoyne",
+        "portfolio_url"=>"http://mikekilcoyne.com",
+        "bio"=>"I love capturing people, animal, places, and things in their element. ",
+        "location"=>"Istanbul, Turkey",
+        "links"=>
+          {"self"=>"https://api.unsplash.com/users/mikekilcoyne",
+          "html"=>"https://unsplash.com/@mikekilcoyne",
+          "photos"=>"https://api.unsplash.com/users/mikekilcoyne/photos",
+          "likes"=>"https://api.unsplash.com/users/mikekilcoyne/likes",
+          "portfolio"=>"https://api.unsplash.com/users/mikekilcoyne/portfolio",
+          "following"=>"https://api.unsplash.com/users/mikekilcoyne/following",
+          "followers"=>"https://api.unsplash.com/users/mikekilcoyne/followers"},
+        "profile_image"=>
+          {"small"=>"https://images.unsplash.com/profile-1598778372638-601d72333823image?ixlib=rb-1.2.1&q=80&fm=jpg&crop=faces&cs=tinysrgb&fit=crop&h=32&w=32",
+          "medium"=>"https://images.unsplash.com/profile-1598778372638-601d72333823image?ixlib=rb-1.2.1&q=80&fm=jpg&crop=faces&cs=tinysrgb&fit=crop&h=64&w=64",
+          "large"=>"https://images.unsplash.com/profile-1598778372638-601d72333823image?ixlib=rb-1.2.1&q=80&fm=jpg&crop=faces&cs=tinysrgb&fit=crop&h=128&w=128"},
+        "instagram_username"=>"itsmemikekilcoyne",
+        "total_collections"=>1,
+        "total_likes"=>3,
+        "total_photos"=>78,
+        "accepted_tos"=>true
+      }
     }
     city = "denver,co"
     
     photo = Photo.new(photo_data, city)
-  
+
     expect(photo).to be_a(Photo)
     expect(photo.image_url).to eq(photo_data[:urls]['full'])
-    expect(photo.location).to eq(photo_data[:results][0][:locations][0][:latLng][:lng])
+    expect(photo.location).to eq(city)
 
     expected = {  
                 author: photo_data[:user]['username'], 
