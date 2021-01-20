@@ -17,7 +17,9 @@ class HourlyWeather
 
   def get_wind_direction(degree)
     case degree
-    when 348.75..11.25
+    when 0..11.25
+      'N' 
+    when 348.75..360
       'N' 
     when 11.25..33.75
       'NNE' 
