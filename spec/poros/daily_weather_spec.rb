@@ -1,5 +1,5 @@
 require 'rails_helper'
-describe 'CurrentWeather' do
+describe 'DailyWeather' do
   it 'exists and has attributes' do
     daily_weather_data = {
         :dt=>1611082800,
