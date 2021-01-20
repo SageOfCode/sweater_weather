@@ -12,8 +12,6 @@ class RoadtripFacade
     def trip_duration(trip_time)
       if Time.parse(trip_time).min < 30
         Time.parse(trip_time).hour
-      elsif Time.parse(trip_time).hour > 48
-        48
       else
         Time.parse(trip_time).hour + 1
       end

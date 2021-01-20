@@ -1,13 +1,5 @@
 class WeatherService
   class << self
-    def current_weather(location)
-      response = conn.get('/data/2.5/onecall') do |req|
-        req.params['lat'] = location.lat
-        req.params['lon'] = location.lng
-      end
-      parse_data(response)
-    end
-
     def weather_forecast(lat, lng)
       response = conn.get('/data/2.5/onecall') do |req|
         req.params['lat'] = lat
