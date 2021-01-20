@@ -1,7 +1,7 @@
 class HourlyWeather
   attr_reader :time,
               :temp,
-              :wind_spped,
+              :wind_speed,
               :wind_direction,
               :conditions,
               :icon
