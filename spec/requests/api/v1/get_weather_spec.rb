@@ -25,7 +25,6 @@ RSpec.describe "Weather endpoints" do
       expect(forecast[:data][:attributes]).to be_a(Hash)
 
       current_forecast = forecast[:data][:attributes][:current_weather]
-      expect(current_forecast).to be_a(Hash)
       expect(current_forecast).to have_key(:date)
       expect(current_forecast[:date]).to be_a(String)
       expect(current_forecast).to have_key(:sunrise)
@@ -80,6 +79,14 @@ RSpec.describe "Weather endpoints" do
       expect(hourly_forecast.first[:conditions]).to be_a(String)
       expect(hourly_forecast.first).to have_key(:icon)
       expect(hourly_forecast.first[:icon]).to be_a(String)
+    end
+    it 'returns a 400 error if no query is passed in' do 
+      query_params = {
+          location: ''
+          }
+      get "/api/v1/forecast", params: query_params
+      expect(response).to_not be_successful
+      expect(response.status).to eq(400)
     end
   end
 end
