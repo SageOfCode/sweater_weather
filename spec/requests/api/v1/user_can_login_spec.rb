@@ -36,5 +36,15 @@ RSpec.describe "User login endpoints" do
       expect(user_info).to have_key(:api_key)
       expect(user_info[:api_key]).to be_a(String)
     end
+    it 'returns a 400 error if invalid search' do 
+      
+      query_params = {
+          "email": "whatever1@example.com",
+          "password": "password"
+                      }
+      post "/api/v1/sessions", params: query_params
+      expect(response).to_not be_successful
+      expect(response.status).to eq(401)
+    end
   end
 end
