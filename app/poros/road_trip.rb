@@ -5,8 +5,8 @@ class RoadTrip
               :weather_at_eta
 
   def initialize(origin, destination, trip_data, weather_data)
-    @start_city = origin
-    @end_city = destination
+    @start_city = origin.sub(",", ", ").titleize
+    @end_city = destination.sub(",", ", ").titleize
     @travel_time = trip_data[:route][:formattedTime]
     @weather_at_eta = {
       temperature: weather_data[:temp],
