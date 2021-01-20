@@ -9,8 +9,8 @@ class RoadTrip
     @end_city = destination
     @travel_time = trip_data[:route][:formattedTime]
     @weather_at_eta = {
-      temperature: weather_data[:current][:temp],
-      conditions: weather_data[:current][:weather][0][:description]
+      temperature: weather_data[:temp],
+      conditions: weather_data[:weather][0][:description]
     }
   end
 end
