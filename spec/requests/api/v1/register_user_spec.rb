@@ -31,5 +31,30 @@ RSpec.describe "User endpoints" do
       expect(user_info).to have_key(:api_key)
       expect(user_info[:api_key]).to be_a(String)
     end
+    it 'returns a 401 error if password does not match' do 
+      query_params = {
+          "email": "whatever1@example.com",
+          "password": "password",
+          "password_confirmation": "passweird"
+                      }
+      post "/api/v1/users", params: query_params
+      expect(response).to_not be_successful
+      expect(response.status).to eq(401)
+    end
+    it 'returns a 400 error if email is taken' do 
+      User.create!(
+        email: 'whatever@example.com',
+        password: 'password',
+        api_key: "jgn983hy48thw9begh98h4539h4"
+                    )
+      query_params = {
+          "email": "whatever@example.com",
+          "password": "password",
+          "password_confirmation": "password"
+                      }
+      post "/api/v1/users", params: query_params
+      expect(response).to_not be_successful
+      expect(response.status).to eq(400)
+    end
   end
 end
