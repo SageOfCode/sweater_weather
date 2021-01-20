@@ -19,5 +19,15 @@ describe RoadtripFacade do
         expect(weather_at_arrival[:conditions]).to be_a(String)
       end
     end
+    context ".trip_duration" do
+      it "returns the closest hour" do
+        trip_time = RoadtripFacade.trip_duration("05:21:41")
+        expect(trip_time).to eq(5)
+      end 
+      it "returns the closest hour" do
+        trip_time = RoadtripFacade.trip_duration("05:41:41")
+        expect(trip_time).to eq(6)
+      end 
+    end
   end
 end
