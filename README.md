@@ -7,7 +7,7 @@
 
 ## Sweater Weather API
 
-## Table of Contents
+### Table of Contents
   - [What it does](#what-it-does)
   - [How to Install Sweater Weather](#how-to-install-sweater-weather)
   - [Testing](#testing)
@@ -17,11 +17,7 @@
 
 ## What it does
 
-This project part of a Service-Oriented Architecture (SOA) application that provides users with flight and weather information based on search parameters that the user provides. The GTFO-BE serves as an intermediary from the GTFO-FE repo and the Weather-API and Flight-API repos. This service collects data from both the Weather and Flight APIs and compiles the data into one service that the front end can call.
-
-To view the production site, please visit the [GTFO link](https://gtfo-fe.herokuapp.com/).
-
-To view the other components of the application please visit the [Github Project Organization](https://github.com/GetThatFlightOut).
+This project part of a Service-Oriented Architecture (SOA) application that provides backend framework to call multiple API's, and return formmatted data. It also allows the front end to store users in the backend database. 
 
 ## How to Install Sweater Weather
 
