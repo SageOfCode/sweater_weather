@@ -43,8 +43,8 @@ describe 'RoadTrip' do
     road_trip = RoadTrip.new(origin, destination, trip_data, weather_data)
   
     expect(road_trip).to be_a(RoadTrip)
-    expect(road_trip.start_city).to eq(origin)
-    expect(road_trip.end_city).to eq(destination)
+    expect(road_trip.start_city).to eq(origin.sub(",", ", ").titleize)
+    expect(road_trip.end_city).to eq(destination.sub(",", ", ").titleize)
     expect(road_trip.travel_time).to eq(trip_data[:route][:formattedTime])
 
     expected = {  
