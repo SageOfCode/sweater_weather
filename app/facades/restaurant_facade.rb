@@ -13,8 +13,8 @@ class RestaurantFacade
       Munchie.new(destination, distance_data, forecast_data, restaurant_data)
     end
 
-    def arrive_time(distance_data)
-      Time.parse(distance_data[:route][:formattedTime]).min + Time.now
-    end
+    # def arrive_time(distance_data)
+    #   Time.parse(distance_data[:route][:formattedTime]).min + Time.now
+    # end
   end 
 end

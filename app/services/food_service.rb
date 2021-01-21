@@ -5,7 +5,7 @@ class FoodService
         req.params['term'] = food_type
         req.params['location'] = location
         req.params['limit'] = 1
-        req.params['open_now'] = true
+        # req.params['open_now'] = true
       end
       parse_data(response)
     end
