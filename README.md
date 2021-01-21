@@ -7,17 +7,14 @@
 
 ## Sweater Weather API
 
+This project part of a Service-Oriented Architecture (SOA) application that provides backend framework to call multiple API's, and return formmatted data. It also allows the front end to store users in the backend database. 
+
 ### Table of Contents
-  - [What it does](#what-it-does)
   - [How to Install Sweater Weather](#how-to-install-sweater-weather)
   - [Testing](#testing)
   - [Learning Goals](#learning-goals)
   - [Licenses](#licenses)
   - [Contact](#contact)
-
-## What it does
-
-This project part of a Service-Oriented Architecture (SOA) application that provides backend framework to call multiple API's, and return formmatted data. It also allows the front end to store users in the backend database. 
 
 ## How to Install Sweater Weather
 
