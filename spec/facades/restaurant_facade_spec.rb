@@ -15,7 +15,7 @@ describe RestaurantFacade do
     context ".create_munchie_obj" do
       it "returns munchie object" do
         munchie = RestaurantFacade.create_munchie_obj("denver,co", "pueblo,co", "mexican")
-        
+
         expect(munchie).to be_a(Munchie)
         expect(munchie.destination_city).to be_a(String)
         expect(munchie.forecast).to be_a(Hash)
