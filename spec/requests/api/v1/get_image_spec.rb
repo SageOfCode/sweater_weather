@@ -25,7 +25,6 @@ RSpec.describe "Image endpoints" do
       expect(image_response[:data][:attributes]).to be_a(Hash)
 
       image_details = image_response[:data][:attributes]
-      expect(image_details).to be_a(Hash)
       expect(image_details).to have_key(:image_url)
       expect(image_details[:image_url]).to be_a(String)
       expect(image_details).to have_key(:location)
@@ -40,6 +39,14 @@ RSpec.describe "Image endpoints" do
       expect(credit[:author_url]).to be_a(String)
       expect(credit).to have_key(:source)
       expect(credit[:source]).to be_a(String)
+    end
+    it 'returns a 400 error if nothing is passed in' do 
+      query_params  = {
+          location: ''
+      }
+      get "/api/v1/backgrounds", params: query_params
+      expect(response).to_not be_successful
+      expect(response.status).to eq(400)
     end
   end
 end

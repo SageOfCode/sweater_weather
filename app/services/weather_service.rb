@@ -1,9 +1,10 @@
 class WeatherService
   class << self
-    def current_weather(location)
+    def weather_forecast(lat, lng)
       response = conn.get('/data/2.5/onecall') do |req|
-        req.params['lat'] = location.lat
-        req.params['lon'] = location.lng
+        req.params['lat'] = lat
+        req.params['lon'] = lng
+        req.params['units'] = 'imperial'
       end
       parse_data(response)
     end

@@ -7,9 +7,9 @@ class LocationService
       parse_data(response)
     end
 
-    def get_trip_distance(start, destination)
+    def get_trip_distance(origin, destination)
       response = conn.get("/directions/v2/route") do |r|
-        r.params['from'] = start
+        r.params['from'] = origin
         r.params['to'] = destination
       end 
       parse_data(response)
