@@ -1,4 +1,4 @@
-class YelpService
+class FoodService
   class << self
     def get_food_data(food_type, location)
       response = conn.get('/v3/businesses/search') do |req|

@@ -1,7 +1,7 @@
 class RestaurantFacade
   class << self
     def restaurant_data(food_type, location)
-      YelpService.get_food_data(food_type, location)
+      FoodService.get_food_data(food_type, location)
     end
 
     def create_munchie_obj(start, destination, food)

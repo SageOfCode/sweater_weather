@@ -1,10 +1,10 @@
 require 'rails_helper'
 
-describe YelpService do
+describe FoodService do
   context "class methods" do
     context ".get_food_data" do
       it "returns results" do
-        query = YelpService.get_food_data("chinese", "boulder,co")
+        query = FoodService.get_food_data("chinese", "boulder,co")
         
         expect(query).to be_a Hash
 
