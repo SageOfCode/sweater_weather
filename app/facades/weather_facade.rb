@@ -12,5 +12,9 @@ class WeatherFacade
       hourly_weather = data[:hourly][0..7].map { |json| HourlyWeather.new(json) }
       all_weather = Weather.new(current_weather, daily_weather, hourly_weather)
     end
+
+    def get_food_weather(lat, lng)
+      WeatherService.destination_weather(lat, lng)
+    end
   end 
 end
