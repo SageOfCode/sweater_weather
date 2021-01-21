@@ -10,7 +10,7 @@ RSpec.describe "Food and forecast endpoints" do
           food:         'chinese'
                   }
       get "/api/v1/munchies", params: query_params
-      
+    
       expect(response).to be_successful
       expect(response.status).to eq(200)
       expect(response.content_type).to eq("application/json")
