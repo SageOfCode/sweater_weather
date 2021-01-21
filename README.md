@@ -3,9 +3,7 @@
 ![](https://img.shields.io/badge/Ruby-2.5.3-orange)
 ![](https://img.shields.io/gem/v/fast_jsonapi)
 
-# README
-
-## Sweater Weather API
+# Sweater Weather API
 
 This project part of a Service-Oriented Architecture (SOA) application that provides backend framework to call multiple API's, and return formmatted data. It also allows the front end to store users in the backend database. 
 
