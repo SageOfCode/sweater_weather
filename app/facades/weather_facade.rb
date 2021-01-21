@@ -14,7 +14,7 @@ class WeatherFacade
     end
 
     def get_food_weather(lat, lng)
-      WeatherService.destination_weather(lat, lng)
+      WeatherService.weather_forecast(lat, lng)
     end
   end 
 end
